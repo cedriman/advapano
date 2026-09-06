@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<krpano>
+	<!--
+		webvr.xml
+		- krpano 1.19-pr14
+	-->
+
+	<!-- load the WebVR plugin and assign it to a 'webvr' variable for easier usage -->
+	<plugin name="webvr" devices="html5" keep="true"
+	        url="webvr.js"
+	        onloaded="copy(webvr, plugin[webvr]);"
+	        mousespeed="0.00125"
+	        multireslock="true"
+	        fullscreen_mirroring="true"
+	        mobilevr_support="true"
+	        mobilevr_ipd="63.5"
+	        mobilevr_screensize="auto"
+	        mobilevr_lens_overlap="1.0"
+	        mobilevr_lens_fov="96"
+	        mobilevr_lens_dist="0.6"
+	        mobilevr_lens_dist2="1|0|0|0"
+	        mobilevr_lens_ca="0.0"
+	        mobilevr_lens_vign="100"
+	        mobilevr_wakelock="true"
+	        mobilevr_sensor_mode="3"
+	        mobilevr_autocalibration="false"
+	        mobilevr_touch_support="true"
+	        mobilevr_fake_support="false"
+	        vr_cursor="hotspot[vr_cursor]"
+	        vr_cursor_enabled="true"
+	        vr_cursor_onover="if(handcursor, tween(hotspot[vr_cursor].scale,0.4,0.1); vr_auto_click(get(vr_timeout)); );"
+	        vr_cursor_onout="tween(hotspot[vr_cursor].scale,0.3,0.1);"
+	        onavailable="webvr_onavailable();"
+	        onunavailable=""
+	        onunknowndevice="webvr_onunknowndevice();"
+	        onentervr="webvr_onentervr();"
+	        onexitvr="webvr_onexitvr();"
+	        />
+
+	<!-- a custom xml data structure with the supported VR headsets -->
+	<vrheadsets>
+		<headset name="cb1" caption="Cardboard A"   overlap="1.10" fov="96.0"  dist="1.00" dist2="1|0|0|0" ca="0.000" vig="100" />
+		<headset name="cb2" caption="Cardboard B"   overlap="1.00" fov="96.0"  dist="0.60" dist2="1|0|0|0" ca="0.000" vig="100" />
+		<headset name="gvr" caption="GearVR"        overlap="1.00" fov="112.0" dist="0.95" dist2="1|0|0|0" ca="0.090" vig="100" />
+		<headset name="hom" caption="HOMiDO"        overlap="1.00" fov="101.0" dist="1.10" dist2="1|0|0|0" ca="0.075" vig="100" />
+		<headset name="one" caption="VR ONE"        overlap="1.00" fov="109.9" dist="0.00" dist2="1.139|0.093|0.018|0.207" ca="0.090" vig="35" />
+		<headset name="ccr" caption="ColorCross VR" overlap="1.00" fov="70.0"  dist="0.65" dist2="1|0|0|0" ca="0.000" vig="100" />
+		<headset name="nod" caption="No Distortion" overlap="1.00" fov="96.0"  dist="0.00" dist2="1|0|0|0" ca="0.000" vig="100" />
+	</vrheadsets>
+
+	<!-- the VR cursor hotspot -->
+	<hotspot name="vr_cursor" keep="true"
+	         url="webvr_cursor_80x80_17f.png"
+	         visible="false"
+	         enabled="false"
+	         distorted="true"
+	         crop="0|0|80|80"
+	         scale="0.3"
+	         depth="1000"
+	         />
+
+</krpano>
